@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "core-js": "^2.6.12",
+    "elapsed-time-logger": "^1.1.7",
+    "escodegen": "^2.1.0",
+    "esmangle": "^1.0.1",
+    "js-beautify-sourcemap": "^1.0.1",
+    "process.argv": "^0.6.1",
+    "walkes": "^0.2.1"
+  }
+}

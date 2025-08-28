@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sample Application</title>
+        <script>
+            var searchParams = new URLSearchParams(window.location.search);
+            if (!searchParams.has("inject")) {
+                searchParams.set("inject", "foo");
+                window.location.search = searchParams.toString();
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Welcome to the Shop</h1>
+        <a href="/login" data-id="login">Login</a>
+        <br />
+        <div class="cart-item" data-id="toaster" data-url="/inventory?id=toaster"></div>
+        <div class="cart-item" data-id="fridge" data-url="/inventory?id=fridge"></div>
+
+        <!-- Markup Injection Point -->
+        <div id="markup-injection"></div>
+
+        <script>
+            // Markup Injection
+            var queryParam = new URLSearchParams(window.location.search).get("inject");
+            document.getElementById("markup-injection").innerHTML = queryParam;
+        </script>
+
+        <script>
+            // Gadget 1
+            var anchorTags = document.getElementsByTagName("a");
+            for (let i = 0; i < anchorTags.length; i++) {
+                anchorTags[i].innerHTML = "<div class='anchor-wrapper' id='" + anchorTags[i].dataset.id + "'>" + anchorTags[i].innerText + "</div>";
+            }
+        </script>
+
+        <script>
+            // Gadget 2
+            var cartItems = document.querySelectorAll(".cart-item");
+            for (let i = 0; i < cartItems.length; i++) {
+                fetch(cartItems[i].dataset.url)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        cartItems[i].innerHTML = data.name + " - $" + data.price;
+                    });
+            }
+        </script>
+    </body>
+</html>

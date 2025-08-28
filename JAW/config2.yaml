@@ -1,0 +1,115 @@
+# 1. which webapps to test?
+testbed: 
+  ## option 1: test a specific website
+  # site: https://google.com
+  ## option 2: provide a top-site list (e.g., Alexa, Tranco, etc)
+  sitelist: /top_15k_webpages.json
+  from_row: 1
+  to_row: 5000
+
+# 2. crawler configuration
+crawler:
+  # max number of urls to visit
+  maxurls: 30
+  # time budget for crawling each site in seconds
+  sitetimeout: 1800 # 30 mins;
+  # overwrite already existing crawled data or not
+  overwrite: false
+  # check if domain is up with a python request before spawning a browser instance
+  domain_health_check: false
+
+  # list of sites to be crawled
+  crawl_list: /tranco_W8849.csv
+
+  # browser to use for crawling
+  browser:
+    name: firefox # options are `chrome` (crawler.js) and `firefox` (crawler-taint.js)
+    headless: true
+    # use foxhound if firefox is enabled (default is true)
+    foxhound: true 
+
+  # start and end indexes of the urls in crUX list
+  start_idx: 0
+  end_idx: 9999
+
+# 3. static analysis configuration
+staticpass:
+  # time budget for static analysis of each site (in seconds)
+  sitetimeout: 10800 # 3 hrs
+  # enforce a max per webpage timeout when `sitetimeout` is not used (in seconds)
+  pagetimeout: 600
+  # iteratively write the graph output to disk (useful in case of timeouts for partial results)
+  iterativeoutput: false
+  # max amount of available memory for static analysis per process
+  memory: 32000
+  # compress the property graph or not
+  compress_hpg: true
+  # overwrite the existing graphs or not
+  overwrite_hpg: false
+  # neo4j instance config
+  neo4j_user: neo4j
+  neo4j_pass: root
+  neo4j_http_port: '7474'
+  # bolt port will default to http port + 2 with ineo 
+  # otherwise, specify another port here
+  neo4j_bolt_port: '7476'
+  neo4j_use_docker: false
+
+# 4. dynamic analysis configuration
+dynamicpass:
+  # time budget for dynamic analysis of each site in seconds
+  sitetimeout: 10800 # 3 hrs
+  # which browser to use
+  browser:
+    name: chrome
+    # use remote browserstack browsers or not
+    use_browserstack: false
+    browserstack_username: xyz
+    browserstack_password: xyz
+    browserstack_access_key: xyz
+
+# 5. verification pass
+verificationpass:
+  sitetimeout: 10800 # 3 hrs
+  # which browser to use
+  browser:
+    name: chrome
+  endpoint: http://127.0.0.1:3456
+
+# 6. choose the vulnerability analysis component to run
+# only one component must have the `enabled` option as true
+
+domclobbering:
+  enabled: false
+  passes:
+    crawling: false
+    static: false
+    static_neo4j: false
+    dynamic: false
+
+cs_csrf:
+  enabled: false
+  passes:
+    crawling: false
+    static: false
+    static_neo4j: false
+
+request_hijacking:
+  enabled: false
+  passes:
+    crawling: false
+    static: true
+    static_neo4j: false
+    verification: false
+
+dom_selectors:
+  enabled: true
+  is_test: false
+  should_change_delimiter: true
+  passes:
+    crawling: true
+    static: true
+    static_neo4j_sinks: true
+    static_neo4j_sources: true
+    verification: false
+

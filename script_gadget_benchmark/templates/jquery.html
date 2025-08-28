@@ -1,0 +1,17 @@
+<!-- https://api.jquery.com/after/ -->
+<script
+    nonce="random"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"
+></script>
+
+<script nonce="random">
+    $(document).ready(function () {
+        $(".foo").after($(".bar"));
+    });
+</script>
+
+<div class="bar">foo</div>
+
+<div class="foo"></div>
+
+<!-- http://localhost:9000/?framework=jquery#<form class="bar"><input name="ownerDocument"/><script>alert(1);</script></form> -->

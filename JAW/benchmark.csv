@@ -1,0 +1,15 @@
+1,localhost:9000/?framework=ajaxify
+2,localhost:9000/?framework=angular
+3,localhost:9000/?framework=aurelia
+4,localhost:9000/?framework=bootstrap
+5,localhost:9000/?framework=closure
+6,localhost:9000/?framework=ember
+7,localhost:9000/?framework=jquery
+8,localhost:9000/?framework=jquerymobile
+9,localhost:9000/?framework=jqueryui
+10,localhost:9000/?framework=knockout
+11,localhost:9000/?framework=polymer
+12,localhost:9000/?framework=ractive
+13,localhost:9000/?framework=requirejs
+14,localhost:9000/?framework=vue
+15,localhost:9000/?framework=webcomponents-polyfill

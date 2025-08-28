@@ -1,0 +1,18 @@
+<body aurelia-app="main">
+    <script
+        nonce="random"
+        src="scripts/vendor-bundle.js"
+        data-main="aurelia-bootstrapper"
+    ></script>
+
+    <todos></todos>
+
+    <!-- example exploit, probably no real world website with benign data flow -->
+
+    <!-- <div
+        ref="me"
+        s.bind="$this.me.ownerDocument.createElement('script')"
+        data-bar="${$this.me.s.src='data:,alert(1)'}"
+        data-foobar="${$this.me.ownerDocument.body.appendChild($this.me.s)}"
+    ></div> -->
+</body>

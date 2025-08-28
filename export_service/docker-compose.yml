@@ -1,0 +1,61 @@
+version: "3.3"
+
+networks:
+    net:
+        driver: bridge
+
+services:
+    export:
+        build:
+            context: .
+            dockerfile: export/Dockerfile
+        hostname: export
+        restart: always
+        networks:
+            - net
+        ports:
+            - "3000:3000"
+        depends_on:
+            - mongo
+        environment:
+            WAIT_HOSTS: mongo:27017
+            NODE_OPTIONS: --max-old-space-size=8192
+            COOKIE_EXPORT_MONGO_COL: findings
+            COOKIE_EXPORT_MONGO_HOST: mongo
+            COOKIE_EXPORT_MONGO_POOLSIZE: 16
+        command: sh -c "/wait && npm start"
+    mysql_crawler:
+        image: mysql:5.7
+        container_name: mysql_crawler
+        hostname: crawler-mysql
+        command: --default-authentication-plugin=mysql_native_password --bind-address=crawler-mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        ulimits:
+            nproc: 65535
+            nofile:
+                soft: 20000
+                hard: 40000
+        environment:
+            - MYSQL_ALLOW_EMPTY_PASSWORD=true
+            - MYSQL_USER=crawler
+            - MYSQL_PASSWORD=CrawlTheNight
+            - MYSQL_ROOT_PASSWORD=CrawlTheNight
+        networks:
+            - net
+        ports:
+            - "3306:3306"
+
+    mongo:
+        image: mongo
+        hostname: mongo
+        restart: always
+        mem_reservation: 2g
+        mem_limit: 4g
+        networks:
+            - net
+        ports:
+            - "27017:27017"
+        volumes:
+            - mongodata:/data/db
+
+volumes:
+    mongodata:

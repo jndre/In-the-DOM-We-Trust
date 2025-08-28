@@ -1,0 +1,19 @@
+{
+  "name": "dynamic_verification",
+  "version": "1.0.0",
+  "description": "- analyzes the selector of the gadget to craft a markup that matches the selector     - markup contains a benign string `testpayload` that should flow into the sink if the flow exists - crawls the web page using puppeteer - intercepts parameters passed to the sinks to detect the testpayload string - inserts the generated markup into the HTTP response of the server",
+  "main": "dynamic_verification.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-beautify": "^1.15.4",
+    "jsdom": "^26.1.0",
+    "minimist": "^1.2.8",
+    "mongodb": "^6.18.0",
+    "process.argv": "^1.0.0",
+    "puppeteer": "^24.17.0"
+  }
+}

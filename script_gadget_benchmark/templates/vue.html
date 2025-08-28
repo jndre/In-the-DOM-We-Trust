@@ -1,0 +1,16 @@
+<script nonce=random src="https://cdn.jsdelivr.net/npm/vue@2.3.0/dist/vue.min.js"></script>
+
+
+<div id="app-4">
+ Hi
+</div>
+<script nonce="random">
+var app4 = new Vue({
+  el: '#app-4',
+  data: {}
+})
+</script>
+
+<!--
+vue intercepts url->dom flow -> flow and creates a function, our tool would interpret this as XSS not SG
+http://localhost:9000/?framework=vue&decode=true#%3Cdiv%20id=app-4%3E%3Cscript%20type=application/ecmascript%3Ealert(1)%3C/script%3E%3C/div%3E --> --

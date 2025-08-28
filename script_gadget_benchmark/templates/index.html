@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <!-- <meta
+            http-equiv="content-security-policy"
+            content="script-src 'nonce-random' 'strict-dynamic'; script-src-elem 'nonce-random' 'strict-dynamic'; script-src-attr 'nonce-random' 'strict-dynamic'; default-src 'self'"
+        /> -->
+        <!-- <meta
+            http-equiv="content-security-policy"
+            content="object-src 'none'; script-src 'nonce-random' 'strict-dynamic' https: http:;"
+        /> -->
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+
+        <!-- Markup Injection -->
+        <div id="inject"></div>
+
+        <script nonce="random">
+            const urlParams = new URLSearchParams(window.location.search);
+            const decode = urlParams.get("decode");
+            if (decode === "true") {
+                inject.innerHTML = decodeURIComponent(
+                    location.hash.replace(/#/g, ""),
+                );
+            } else {
+                inject.innerHTML = location.hash.replace(/#/g, "");
+            }
+        </script>
+
+        {{framework | safe}}
+    </body>
+</html>

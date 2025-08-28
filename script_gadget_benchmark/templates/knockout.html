@@ -1,0 +1,23 @@
+<!-- https://learn.knockoutjs.com/#/?tutorial=intro -->
+
+<script nonce="random" src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script
+    nonce="random"
+    src="http://knockoutjs.com/downloads/knockout-3.4.1.debug.js"
+></script>
+
+<p>First name: <strong data-bind="text: firstName"></strong></p>
+<p>Last name: <strong data-bind="text: lastName"></strong></p>
+
+<script nonce="random">
+    // This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
+    function AppViewModel() {
+        this.firstName = "Bert";
+        this.lastName = "Bertington";
+    }
+
+    // Activates knockout.js
+    ko.applyBindings(new AppViewModel());
+</script>
+
+<!-- http://localhost:9000/?framework=knockout#<div data-bind="html:'<script src=&quot;//example.com/&quot;></script>'"></div> -->

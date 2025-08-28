@@ -1,0 +1,4 @@
+[*.js]
+    charset = utf-8
+    indent_style = space  # seems like we use 4 spaces mostly, so let's define it here
+    indent_size = 4

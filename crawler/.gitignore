@@ -1,0 +1,27 @@
+screenshots/
+out/
+logs/*
+!logs/.gitkeep
+
+# VIM
+*.swp
+*.swo
+
+# Node
+package-lock.json
+node_modules/
+
+# OSX
+.DS_Store
+
+# Crawler
+top-1m.csv
+
+# IDEA IDEs
+.idea/
+*/ignore/*
+
+data
+*.out
+
+lists/tranco
