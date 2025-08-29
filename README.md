@@ -35,6 +35,8 @@ This artifact was tested on machine with 8 cores and 16G RAM running Ubuntu 22.0
     - pip, venv
 - nodejs v22.18.0
 - Docker
+- openjdk-11-jdk
+- Neo4j 3.5 ([helper script](./JAW/installation/linux_neo4j_installation.sh))
 
 ### Setup and Start Sample Application
 
@@ -77,6 +79,11 @@ cd ../..
 cd JAW
 ./install.sh
 cd ..
+```
+
+The script will install Java 11. To install Neo4j, run the following command:
+```bash
+./JAW/installation/linux_neo4j_installation.sh
 ```
 
 ### Setup Dynamic Verification
