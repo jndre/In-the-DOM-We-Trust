@@ -53,7 +53,7 @@ staticpass:
     # bolt port will default to http port + 2 with ineo
     # otherwise, specify another port here
     neo4j_bolt_port: "7476"
-    neo4j_use_docker: true
+    neo4j_use_docker: false
 
 # 4. dynamic analysis configuration
 dynamicpass:
