@@ -35,6 +35,7 @@ This artifact was tested on machine with 8 cores and 16G RAM running Ubuntu 22.0
     - pip, venv
 - nodejs v22.18.0
 - Docker
+    - The user must be part of the `docker` group. Otherwise all docker commands must be executed with sudo.
 - openjdk-11-jdk
 - Neo4j 3.5 ([helper script](./JAW/installation/linux_neo4j_installation.sh))
 
@@ -55,13 +56,23 @@ pip install -r requirements.txt
 python3 server.py
 ```
 
-### Setup Crawling & Dynamic Analysis
+### Setup using the Convenience Script
+
+Either run the convenience script or manually execute the steps from the following section.
+
+```bash
+./install.sh
+```
+
+### Manual Setup
+
+#### Setup Crawling & Dynamic Analysis
 ```bash
 cd crawler
 npm install
 cd patches
 ./apply.sh
-cd ..
+cd ../..
 
 cd exploit_generator
 npm install
@@ -74,7 +85,7 @@ cd patches
 cd ../..
 ```
 
-### Setup JAW
+#### Setup JAW
 ```bash
 cd JAW
 ./install.sh
@@ -86,7 +97,7 @@ The script will install Java 11. To install Neo4j, run the following command:
 ./JAW/installation/linux_neo4j_installation.sh
 ```
 
-### Setup Dynamic Verification
+#### Setup Dynamic Verification
 ```bash
 cd dynamic_verification
 npm install
