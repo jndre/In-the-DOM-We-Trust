@@ -224,7 +224,7 @@ Overall number of processed pages:  1
 confirmed_taintflows saved to: results/http___localhost_/confirmed_taintflows.json
 ```
 
-The error logging of the tool is very verbose and logs errors of the form `Error while Modifying HTML response for injection: ProtocolError: Could not load body for this request. This might happen if the request is a preflight request.` when it tries to edit a preflight request. Preflight requests are just skipped and these logs can be ignored.
+The error logging of the tool is very verbose and logs errors of the form `Error while Modifying HTML response for injection: ProtocolError: Could not load body for this request. This might happen if the request is a preflight request.` when it tries to edit a preflight request. Preflight requests are then just skipped and these logs can be ignored.
 
 The results are written to `./results`.
 
