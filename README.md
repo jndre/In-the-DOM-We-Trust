@@ -37,7 +37,10 @@ This artifact was tested on machine with 8 cores and 16G RAM running Ubuntu 22.0
 - Docker
     - The user must be part of the `docker` group. Otherwise all docker commands must be executed with sudo.
 - openjdk-11-jdk
-- Neo4j 3.5 ([helper script](./JAW/installation/linux_neo4j_installation.sh))
+- Neo4j 3.5
+    - ([helper script](./JAW/installation/linux_neo4j_installation.sh)) will be executed by `install.sh`
+
+We recommend using a virtual machine to run the artifact.
 
 ### Setup and Start Sample Application
 
@@ -58,7 +61,7 @@ python3 server.py
 
 ### Setup using the Convenience Script
 
-Either run the convenience script or manually execute the steps from the following section.
+Run the convenience script or manually execute the steps from the following section. Either way, the scripts will require root privileges to install several apt packages. We recommend to run this artifact in a VM to prevent permanent changes to the host.
 
 ```bash
 ./install.sh
