@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# neo4j version family
-# see https://debian.neo4j.com/ for possible choices
+# IMPORTANT this way of installing and using neo4j has been deprecated. Install and use ineo instead (linux_ineo_installation.sh)
+
 VERSION='3.5'
 
 wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/neotechnology.gpg

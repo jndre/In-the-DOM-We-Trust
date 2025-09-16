@@ -18,7 +18,7 @@ cd ../..
 
 cd JAW
 bash install.sh
-bash installation/linux_neo4j_installation.sh
+bash installation/linux_ineo_installation.sh
 cd ..
 
 cd dynamic_verification

@@ -38,8 +38,6 @@ This artifact was tested on machine with 8 cores and 16G RAM running Ubuntu 22.0
 - Docker
     - The user must be part of the `docker` group. Otherwise all docker commands must be executed with sudo.
 - openjdk-11-jdk
-- Neo4j 3.5
-    - ([helper script](./JAW/installation/linux_neo4j_installation.sh)) will be executed by `install.sh`
 
 We recommend using a virtual machine to run the artifact.
 
@@ -98,7 +96,7 @@ cd ..
 
 The script will install Java 11. To install Neo4j, run the following command:
 ```bash
-./JAW/installation/linux_neo4j_installation.sh
+./JAW/installation/linux_ineo_installation.sh
 ```
 
 #### Setup Dynamic Verification
