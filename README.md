@@ -214,6 +214,18 @@ To run it, execute:
 cd dynamic_verification
 ./run.sh
 ```
+
+Expected output:
+```
+...
+Current length of the confirmed_taintflows:  2
+Overall number of processed dataflows:  1
+Overall number of processed pages:  1
+confirmed_taintflows saved to: results/http___localhost_/confirmed_taintflows.json
+```
+
+The error logging of the tool is very verbose and logs errors of the form `Error while Modifying HTML response for injection: ProtocolError: Could not load body for this request. This might happen if the request is a preflight request.` when it tries to edit a preflight request. Preflight requests are just skipped and these logs can be ignored.
+
 The results are written to `./results`.
 
 ## Interpreting Results
