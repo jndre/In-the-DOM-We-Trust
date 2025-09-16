@@ -19,7 +19,8 @@ This README guides you through the process of setting up the environment, runnin
 - [exploit generator](./exploit_generator): exploit generator for markup injection vulnerabilities
 - [exploit validator](./exploit_validator): validates the markup injection exploits by observing if the generated payload reaches the DOM
 - [export service](./export_service): the database that collected taint flows are written to
-- [Foxhound](./foxhound): compiled version of [Foxhound](https://github.com/SAP/project-foxhound) used for our analysis, with added support for DOM gadget flows. Our patches have since been merged into the upstream repository.
+- [Foxhound](./foxhound): compiled version of [Foxhound](https://github.com/SAP/project-foxhound) used for our analysis, with added support for DOM gadget flows. Our patches have since been merged into the [upstream repository v119.0](https://github.com/SAP/project-foxhound/releases/tag/v119.0).
+    - The binary files are stored in git large file storage. If you obtained this artifact from github, you must install `git-lfs` and run `git lfs install && git lfs fetch --all && git lfs pull` to download the binary files.
 - [JAW](./JAW): a [fork of JAW](https://github.com/SoheilKhodayari/JAW) with added support for DOM-to-sink flows
 - [sample application](./sample_application): a simple application with DOM gadget vulnerabilities, will be used to demonstrate functionality
 - [script gadget benchmark](./script_gadget_benchmark): a benchmark of known script gadget vulnerabilities, developed during the shepherding process.
@@ -115,6 +116,7 @@ cd export_service
 docker compose up
 ```
 The docker compose command starts a MySQL and a MongoDB database that store the results of the crawling and dynamic analysis steps.
+The logs of the docker services are very verbose and can be ignored.
 
 Next, seed the database with the URLs to be crawled (in this case only `http://localhost`). Afterward, start the crawler:
 ```bash
