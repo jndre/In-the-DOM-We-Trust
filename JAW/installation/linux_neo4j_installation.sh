@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# IMPORTANT this way of installing and using neo4j has been deprecated. Install and use ineo instead (linux_ineo_installation.sh)
+# IMPORTANT: this way of installing and using neo4j has been deprecated. Install and use ineo instead (linux_ineo_installation.sh)
 
 VERSION='3.5'
 

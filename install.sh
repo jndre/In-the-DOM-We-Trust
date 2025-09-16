@@ -18,6 +18,7 @@ cd ../..
 
 cd JAW
 bash install.sh
+# also install ineo https://github.com/cohesivestack/ineo
 bash installation/linux_ineo_installation.sh
 cd ..
 
